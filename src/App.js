@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import activeColor from './modules/active-color';
 import colorpicker from './modules/colorpicker';
-import { getVisibleSelectors } from './modules/_common/selectors';
 import './App.css';
+
+const {
+  components: { Layout }
+} = activeColor;
 
 class App extends Component {
   componentDidMount = () => {
@@ -11,22 +15,11 @@ class App extends Component {
   };
 
   render() {
-    const { colors } = this.props;
-    return (
-      <div className="App">
-        {colors.map(color => (
-          <div>{color.name}</div>
-        ))}
-      </div>
-    );
+    return <Layout />;
   }
 }
 
-const mapStateToProps = state => ({
-  colors: getVisibleSelectors(state)
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { fetchColors: colorpicker.actions.fetchColors }
 )(App);

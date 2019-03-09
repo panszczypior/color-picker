@@ -1,8 +1,8 @@
 import * as type from './actionTypes';
 
 const initState = {
-  name: 'white',
-  hex: '#fff'
+  name: 'coral',
+  hex: '#ff7f50'
 };
 
 export default function reducer(
