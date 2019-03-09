@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import colorpicker from './modules/colorpicker';
+import colorpicker from './modules/color-picker';
 import activeColor from './modules/active-color';
 import searchQuery from './modules/search-query';
 

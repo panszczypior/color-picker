@@ -1,7 +1,7 @@
 import * as type from './actionTypes';
 
 const initState = {
-  query: 'black'
+  query: ''
 };
 
 export default function reducer(

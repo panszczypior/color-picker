@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import activeColor from './modules/active-color';
-import colorpicker from './modules/colorpicker';
+import colorpicker from './modules/color-picker';
 
 const {
   components: { Layout }
