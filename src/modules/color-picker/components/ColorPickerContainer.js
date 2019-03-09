@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import activeColor from '../../active-color';
+import searchQuery from '../../search-query';
 import common from '../../common';
 import * as selectors from '../../selectors';
 
 const {
-  components: { Button, Input }
+  components: { ColorPicker }
 } = common;
 
-const ColorPickerContainer = ({ colors, setActiveColor }) => {
+const ColorPickerContainer = ({
+  colors,
+  setActiveColor,
+  updateSearchQuery
+}) => {
   const [selectedColor, selectColor] = useState({});
 
   const handleAcceptColor = () => {
@@ -16,20 +21,18 @@ const ColorPickerContainer = ({ colors, setActiveColor }) => {
   };
   const handleColorSelected = color => selectColor(color);
 
+  const handleQueryChange = ({ target: { value } }) => updateSearchQuery(value);
+
   return (
-    <div>
-      <Input onChange={() => ({})} />
-      <ul>
-        {colors.map(({ name, hex }) => (
-          <li key={`${hex}${name}`}>
-            <Button onClick={() => handleColorSelected({ name, hex })}>
-              {name}
-            </Button>
-          </li>
-        ))}
-      </ul>
-      <Button onClick={handleAcceptColor}>accept</Button>
-    </div>
+    <>
+      <ColorPicker
+        colors={colors}
+        selectedColor={selectedColor}
+        onColorSelected={handleColorSelected}
+        onQueryChange={handleQueryChange}
+        onAcceptColor={handleAcceptColor}
+      />
+    </>
   );
 };
 
@@ -38,6 +41,9 @@ export default connect(
     colors: selectors.getVisibleSelectors(state)
   }),
   dispatch => ({
-    setActiveColor: color => dispatch(activeColor.actions.setActiveColor(color))
+    setActiveColor: color =>
+      dispatch(activeColor.actions.setActiveColor(color)),
+    updateSearchQuery: query =>
+      dispatch(searchQuery.actions.updateSearchQuery(query))
   })
 )(ColorPickerContainer);
