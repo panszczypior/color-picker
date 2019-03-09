@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import activeColor from './modules/active-color';
 import colorpicker from './modules/colorpicker';
-import './App.css';
 
 const {
   components: { Layout }
 } = activeColor;
+
+const {
+  components: { ColorPickerContainer }
+} = colorpicker;
 
 class App extends Component {
   componentDidMount = () => {
@@ -15,7 +18,11 @@ class App extends Component {
   };
 
   render() {
-    return <Layout />;
+    return (
+      <Layout>
+        <ColorPickerContainer />
+      </Layout>
+    );
   }
 }
 

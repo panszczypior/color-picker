@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { PageWrapper, ColorName } from './Layout.ui';
+import { PageWrapper, ColorName, FloatingContainer } from './Layout.ui';
 
 const Layout = ({ activeColor: { name, hex }, children }) => {
   return (
     <PageWrapper color={hex}>
       <ColorName color={hex}>{name}</ColorName>
-      {children}
+      <FloatingContainer>{children}</FloatingContainer>
     </PageWrapper>
   );
 };
