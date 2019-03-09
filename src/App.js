@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import colorpicker from './modules/colorpicker';
+import { getVisibleSelectors } from './modules/_common/selectors';
 import './App.css';
 
 class App extends Component {
@@ -10,11 +11,22 @@ class App extends Component {
   };
 
   render() {
-    return <div className="App">text</div>;
+    const { colors } = this.props;
+    return (
+      <div className="App">
+        {colors.map(color => (
+          <div>{color.name}</div>
+        ))}
+      </div>
+    );
   }
 }
 
+const mapStateToProps = state => ({
+  colors: getVisibleSelectors(state)
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { fetchColors: colorpicker.actions.fetchColors }
 )(App);
