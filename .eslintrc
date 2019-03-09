@@ -29,7 +29,8 @@
     "window": true,
     "document": true,
     "localStorage": true,
-    "navigator": true
+    "navigator": true,
+    "fetch": true
   },
   "env": {
     "jest/globals": true
