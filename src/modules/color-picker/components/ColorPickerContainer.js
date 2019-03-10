@@ -24,7 +24,7 @@ const ColorPickerContainer = ({
   const handleQueryChange = ({ target: { value } }) => updateSearchQuery(value);
 
   return (
-    <div>
+    <>
       <ColorPicker
         colors={colors}
         selectedColor={selectedColor}
@@ -32,7 +32,7 @@ const ColorPickerContainer = ({
         onQueryChange={handleQueryChange}
         onAcceptColor={handleAcceptColor}
       />
-    </div>
+    </>
   );
 };
 

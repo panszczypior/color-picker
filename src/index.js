@@ -5,6 +5,8 @@ import configureStore from './configureStore';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './globalStyle.css';
+
 const store = configureStore();
 
 ReactDOM.render(
