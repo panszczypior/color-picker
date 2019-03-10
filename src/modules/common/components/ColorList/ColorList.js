@@ -1,9 +1,9 @@
 import React from 'react';
 import { List, Item, ColorThumb, ColorLabel } from './ColorList.ui';
 
-const ColorList = ({ colors, onColorSelected, selectedColor }) => {
+const ColorList = ({ colors, onColorSelected, selectedColor, ...rest }) => {
   return (
-    <List>
+    <List {...rest}>
       {colors.map(color => (
         <Item
           key={`${color.hex}${color.name}`}

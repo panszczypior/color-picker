@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  margin: 2rem 0;
+  margin: 2rem 0 auto 0;
   padding: 0;
   list-style: none;
 `;

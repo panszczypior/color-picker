@@ -8,7 +8,7 @@ const ColorPickerWrapper = styled.div`
   min-height: 40rem;
   display: flex;
   flex-direction: column;
-  boxshadow: 3px 3px 20px 3px ${hexToRGB('#cccccc', 0.2)};
+  box-shadow: 3px 3px 20px 3px ${hexToRGB('#cccccc', 0.2)};
 `;
 
 export { ColorPickerWrapper as default, ColorPickerWrapper };
