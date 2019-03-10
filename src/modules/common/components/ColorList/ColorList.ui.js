@@ -14,6 +14,7 @@ export const Item = styled.li`
   margin: 0;
   border: 2px solid transparent;
   cursor: pointer;
+  border-color: ${({ active, color }) => active && color};
 `;
 
 export const ColorThumb = styled.div`
