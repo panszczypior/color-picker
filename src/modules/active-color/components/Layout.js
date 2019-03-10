@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageWrapper, ColorName, FloatingContainer } from './Layout.ui';
 
 const Layout = ({ activeColor: { name, hex }, children }) => {
@@ -11,9 +10,4 @@ const Layout = ({ activeColor: { name, hex }, children }) => {
   );
 };
 
-export default connect(
-  ({ activeColor }) => ({
-    activeColor
-  }),
-  null
-)(Layout);
+export default Layout;

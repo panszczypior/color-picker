@@ -18,8 +18,9 @@ class App extends Component {
   };
 
   render() {
+    const { activeColor: color } = this.props;
     return (
-      <Layout>
+      <Layout activeColor={color}>
         <ColorPickerContainer />
       </Layout>
     );
@@ -27,6 +28,8 @@ class App extends Component {
 }
 
 export default connect(
-  null,
+  ({ activeColor: color }) => ({
+    activeColor: color
+  }),
   { fetchColors: colorpicker.actions.fetchColors }
 )(App);
