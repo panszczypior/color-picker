@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import activeColor from './modules/active-color';
 import colorpicker from './modules/color-picker';
+import common from './modules/common';
 
 const {
   components: { Layout }
-} = activeColor;
+} = common;
 
 const {
   components: { ColorPickerContainer }
 } = colorpicker;
 
-class App extends Component {
-  componentDidMount = () => {
-    const { fetchColors } = this.props;
+const App = ({ fetchColors, activeColor: color }) => {
+  useEffect(() => {
     fetchColors();
-  };
-
-  render() {
-    const { activeColor: color } = this.props;
-    return (
-      <Layout activeColor={color}>
-        <ColorPickerContainer />
-      </Layout>
-    );
-  }
-}
+  }, []);
+  return (
+    <Layout activeColor={color}>
+      <ColorPickerContainer />
+    </Layout>
+  );
+};
 
 export default connect(
   ({ activeColor: color }) => ({
